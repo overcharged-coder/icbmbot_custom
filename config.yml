@@ -1,0 +1,105 @@
+# config.yml — BotLi-style config for trash_bot.py
+# Keep this OUT of git (add to .gitignore)
+token: "lip_qPqCdvXyfOSpSvXXX1AA"   # your Lichess API bot token
+
+engines:
+  standard:
+    dir: "./stockfish_new"
+    name: "stockfish-windows-x86-64-avxvnni.exe"
+    ponder: true
+    silence_stderr: false
+    move_overhead_multiplier: 6.5
+    uci_options:
+      Threads: 12
+      Hash: 4096
+      Move Overhead: 100
+    limits: {}
+
+syzygy:
+  standard:
+    enabled: true
+    paths:
+      - "C:/Users/manoj/3-4-5"
+      - "C:/Users/manoj/6-7"
+    max_pieces: 7
+    instant_play: true
+
+#books config
+opening_books:
+  enabled: true
+  priority: 400
+  books:
+    standard_white:
+      selection: best_move
+      names:
+        - Perfect2023
+        - lilawhite
+        - whitewinner
+        - Titans
+        - gm
+        - ai
+    standard_black:
+      selection: best_move
+      names:
+        - niki
+        - Opimus3.1
+        - blackwinner
+        - Titans
+        - gm
+        - noob 
+    drawish:
+      selection: best_move
+      names:
+        - draw
+        - drawish
+
+books:
+  whitewinner: "C:/Users/manoj/icbmbot_local/opening/bin/BOOK_W.bin"
+  blackwinner:        "C:/Users/manoj/icbmbot_local/opening/bin/BOOK_B.bin"
+  drawish:        "C:/Users/manoj/icbmbot_local/opening/bin/BOOK.bin"
+  Titans: "C:/Users/manoj/icbmbot_local/opening/bin/black.bin"
+  # books from a fork i got
+  optimus2502: "C:/Users/manoj/icbmbot_local/opening/bin/OPTIMUS2502.bin"
+  optimus4: "C:/Users/manoj/icbmbot_local/opening/bin/win.bin"
+  Perfect2023: "C:/Users/manoj/icbmbot_local/opening/bin/white.bin"
+  Opimus3.1: "C:/Users/manoj/icbmbot_local/opening/bin/Optical.bin"
+  noob: "C:/Users/manoj/icbmbot_local/opening/bin/Titans.bin"
+  ai: "C:/Users/manoj/icbmbot_local/opening/bin/nikibook.bin"
+  gm: "C:/Users/manoj/icbmbot_local/opening/bin/gm2001(1).bin"
+  niki: "C:/Users/manoj/icbmbot_local/opening/bin/nikimoves.bin"
+  lilawhite: "C:/Users/manoj/icbmbot_local/opening/bin/lilawhite.bin"
+  lilablack: "C:/Users/manoj/icbmbot_local/opening/bin/lila.bin"
+  winwhite: "C:/Users/manoj/icbmbot_local/opening/bin/winwhite.bin"
+  draw: "C:/Users/manoj/icbmbot_local/opening/bin/drawing.bin"
+  badwhite: "C:/Users/manoj/icbmbot_local/opening/bin/badwhite.bin"
+
+
+challenge:
+  concurrency: 1
+  variants:
+    - standard
+  time_controls:
+    - blitz
+    - rapid
+    - bullet
+  min_initial: 60     # lowest base time in seconds to accept (e.g., 1+0=60)
+  max_initial: 1200   # highest base time
+  bullet_with_increment_only: false
+
+matchmaking:
+  delay: 10
+  timeout: 30
+  selection: cyclic
+  types:
+    blitz:
+      tc: 5+0
+    rapid:
+      tc: 10+0
+    bullet:
+      tc: 1+0
+
+messages:
+  greeting: "Wassup gamers 😈🚀 it’s ya boi icbmsaregoated2 powered by {engine} 💯 Type !help before I ratio u IRL 📈🐐"
+  goodbye: "EZ dubs 🤡💥 another opponent sent straight to the gulag 🚪👋 {me} (aka icbmsaregoated2) logging off like a giga chad 🕶️🔥"
+  greeting_spectators: "{me} (icbmsaregoated2) vs {opponent} with {engine} in the cockpit 🚀🐐 Place ur bets Type !help if u can survive my power"
+  goodbye_spectators: "Simulation cooked 🍳☢️ {opponent} got nuked into Ohio 🌽😂 Thanks for watching legends 🐐🚀 {me} signing off until the next meme detonation 💥"
